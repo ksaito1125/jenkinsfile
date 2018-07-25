@@ -1,6 +1,6 @@
 pipeline {
   agent {
-      docker { image 'ubuntu:18.04' }
+      docker { image 'maven:3.5.4-jdk-8' }
   }
   stages {
     stage('build') {
@@ -8,6 +8,8 @@ pipeline {
           sh 'echo Building ${BRANCH_NAME}...'
 	  sh 'cat /etc/os-release'
 	  sh 'ls -l'
+	  sh 'mvn --version'
+	  sh 'java -version'
       }
     }
   }
