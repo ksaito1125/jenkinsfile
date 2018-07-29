@@ -3,7 +3,9 @@ pipeline {
   stages {
       stage('info') {
 	  agent {
-	      dockerfile true
+	      dockerfile {
+		  args '-v maven:/root/.m2/repository'
+	      }
 	  }
 	  steps {
               sh 'echo Building ${BRANCH_NAME}...'
@@ -16,7 +18,9 @@ pipeline {
       }
       stage('build') {
 	  agent {
-	      dockerfile true
+	      dockerfile {
+		  args '-v maven:/root/.m2/repository'
+	      }
 	  }
 	  steps {
 	      dir('my-app') {
