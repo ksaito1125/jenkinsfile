@@ -23,7 +23,6 @@ pipeline {
 	      	  sh 'ls -l'
 		  sh 'mvn package'
 	      }
-	      #archiveArtifacts 'my-app/target/my-app-*.jar'
 	  }
       }
       stage('outputs') {
