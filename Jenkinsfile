@@ -26,6 +26,7 @@ pipeline {
 	      dir('my-app') {
 	      	  sh 'ls -l'
 		  sh 'mvn package'
+		  archiveArtifacts 'target/my-app-*.jar'
 	      }
 	  }
       }
