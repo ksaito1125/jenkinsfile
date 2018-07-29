@@ -39,4 +39,12 @@ pipeline {
 	  }
       }
   }
+  post {
+      always {
+	  node('ant') {
+	      archive "target/**/*"
+              junit 'my-app/target/surefire-reports/*.xml'
+	  }
+      }
+  }
 }
